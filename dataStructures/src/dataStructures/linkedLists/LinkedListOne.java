@@ -19,6 +19,24 @@ public class LinkedListOne {
 		length++;
 	}
 
+	public void reverseLinkedList() {
+		Node temp = head;
+		Node after = temp.next;
+		Node prev = null;
+		while (temp != null) {
+			after = temp.next;
+			temp.next = prev;
+			prev = temp;
+			temp = after;
+		}
+
+		while (prev != null) {
+			System.out.print(prev.value + "->");
+			prev = prev.next;
+		}
+
+	}
+
 	public void printLinkedList() {
 		Node temp = head;
 		while (temp != null) {
@@ -37,6 +55,8 @@ public class LinkedListOne {
 		ll.createLinkedList(15);
 
 		ll.printLinkedList();
+		System.out.println();
+		ll.reverseLinkedList();
 
 	}
 }
